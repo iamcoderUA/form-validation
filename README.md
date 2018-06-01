@@ -11,8 +11,8 @@ Istallation instructions:
 5. gulp build (# build for production with minification) 
 
 Development
-* run 'gulp', which will start server with live reload. Navigate to http://localhost:3000/
+* gulp -  will start the server with live reload. Navigate to http://localhost:3000/
 
-Production (also for testing SSR/Pre-rendering locally)
-* run 'npm run start' - spins up a nodemon to serve an application. Navigate to http://localhost:55800.
+Production
+* npm run start - spins up a nodemon server to serve an application. Navigate to http://localhost:55800.
 
