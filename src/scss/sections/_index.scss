@@ -1,0 +1,175 @@
+.index {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $bg;
+  padding: 20px 0;
+  position: relative;     
+  overflow: hidden;   
+  @include laptops() {
+    padding: 8px 0;
+  }
+  &-container {
+    width: 100%;
+    padding: 0 15px;
+    @include phones() {
+      padding: 0;
+    }
+    @include laptops() {
+      width: 940px;
+      display: flex;
+    }
+    @include laptopsMDPI() {
+      width: 1024px;
+    }
+    @include laptopsHDPI() {
+      width: 1140px;
+    }
+    @include desktop() {
+      width: 1200px;
+    }
+    @include desktopHD() {
+      display: flex;
+      justify-content: space-between;
+      width: 1200px;
+    }
+  }
+  &-content {
+    width: 100%;
+    @include vertical() {
+      max-width: 370px;
+      margin: 0 auto;
+    }
+    @include tablets() {
+      max-width: rem(440px);
+    }
+    @include laptops() {
+      margin: 0;
+      margin-right: 100px;
+    }
+    @include desktop() {
+      margin-right: 200px;
+    }
+    @include desktopWide() {
+      margin-right: 0;
+    }
+  }
+  &-img {
+    position: relative;
+    width: 100%;
+    height: 595px;
+    display: none;
+    @include laptops {
+      display: block;
+    }
+    &__laptop {
+      position: absolute;
+      top: 50%;
+      right: -200px;
+      transform: translateY(-50%);
+      width: 598px;
+      height: 511px;
+      @include laptopsMDPI() {
+        width: 698px;
+        right: -230px;
+      }
+      @include laptopsHDPI {
+        width: 798px;
+        height: 580px;
+        top: 51%;
+        right: -220px;
+      }
+      @include desktop {
+        width: 900px;
+        top: 51%;
+        height: 590px;
+        right: -370px;
+      }
+      @include desktopWide {
+        width: 900px;
+        top: 51%;
+        height: 590px;
+        right: -100%;
+      }
+    }
+    &__phone {
+      position: absolute;
+      width: 200px;
+      height: 400px;
+      bottom: 40px;
+      left: 0;
+      z-index: 10;
+      @include laptopsHDPI() {
+        bottom: 0;
+        width: 245px;
+        height: 482px;
+      }
+      @include desktop {
+        bottom: -5px;
+        left: 20px;
+      }
+      @include desktopWide {
+        bottom: -5px;
+        left: 80%;
+      }
+    }
+  }
+  &-title {
+    text-align: center;
+    margin-bottom: 24px;
+    @include vertical() {
+      text-align: left;
+      max-width: 320px;
+    }
+    @include tablets() {
+      max-width: 100%;
+    }
+  }
+  &-features {
+    margin-bottom: 24px;
+    @include vertical() {
+      max-width: 320px;
+    }
+    @include phones() {
+      max-width: 335px;
+    }
+  }
+  &-form {
+    width: 100%;
+  }
+}
+
+.features-list {
+  &__item {
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 10px;
+    @include tablets() {
+      padding-left: rem(48px);
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__text {
+    color: $text;
+    font-size: 13.5px;    
+    @include vertical {
+      font-size: 15px;
+    }
+    @include phones {
+      font-size: 16px;
+    }
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    fill: $border;
+    @include vertical() {
+      left: 0;
+    }
+  }
+}

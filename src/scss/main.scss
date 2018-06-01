@@ -1,0 +1,32 @@
+// colors
+$bg: #0b172a;
+$green: #1c945d;
+$border: #20a86b;
+$text: #7a8f99;
+$inputsBg: rgba(245,248,250,.1);
+$error: #e15433;
+
+// resolutions
+$desktopWide: 1921px;
+$desktopHD: 1920px;
+$desktop: 1600px;
+$laptopsHDPI: 1440px;
+$laptopsMDPI: 1280px;
+$laptops: 960px;
+$tablets: 600px;
+$phones: 480px;
+$vertical: 321px;
+
+// components
+@import "components/_media";
+@import "components/_animations";
+@import "components/header";
+@import "components/form";
+
+
+// layout
+@import "layout/base";
+@import "layout/adjusment";
+
+// sections
+@import "sections/_index";

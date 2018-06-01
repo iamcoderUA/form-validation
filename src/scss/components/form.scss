@@ -1,0 +1,335 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  &__row {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+    &_margin {
+      @include laptops() {
+        margin: 8px 0 24px 0;
+      }
+    }
+  }
+  &__cell {
+    position: absolute;
+    display: inline-block;
+    color: $text;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: .3s;
+  }
+  &__input {
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+    color: #fff;
+    background-color: $inputsBg;
+    padding: 20px 15px 0 15px;
+    outline: none;
+    border: 1px solid rgba(32, 168, 107, .4);
+    border-radius: 4px;
+    transition: border-color .3s;
+    @include tablets() {
+      height: 64px;
+    }
+    &.js-invalid {
+      border: 1px solid $error;
+    }
+    &.js-checked {
+      border: 1px solid $border;
+    }
+    &::placeholder {
+      color: #fff;
+      opacity: .6;
+    }
+    &:-ms-input-placeholder {
+      color: #fff;
+      opacity: .6;
+    }
+    &::-ms-input-placeholder {
+      color: #fff;
+      opacity: .6;
+    }
+    &:focus ~ .login-form__cell, &:valid ~ .login-form__cell {
+      top: 15px;
+      font-size: 12px;
+      transition: .3s;
+    }
+    &:focus {
+      border: 1px solid $border;
+      transition: border-color .3s;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 50px #212d3e inset;
+      box-shadow: 0 0 0 50px #212d3e inset;      
+      -webkit-text-fill-color: #fff;
+    }
+  }
+  &__password-error {
+    min-width: 200px;
+    max-width: 200px;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -52px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: #fff;
+    background-color: $error;
+    text-align: center;
+    padding: 9px 0;
+    border-radius: 5px;
+    transition: .3s;
+    @include tablets() {
+      min-width: 280px;
+      max-width: 280px;
+    }    
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      margin-top: -1px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 10px 0 10px;
+      border-color: $error transparent transparent transparent;
+    }
+    &.js-active {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity .3s;
+    }
+  }
+  &__error {
+    display: none;  
+    opacity: 0;
+    align-items: center;
+    width: 100%;
+    background-color: $error;
+    padding: 10px 0;    
+    border-radius: 4px;
+    margin-bottom: 16px;
+    @include vertical() {
+      font-size: 13px; 
+    }
+    &.js-active {
+      display: flex;
+      opacity: 1;
+      animation: .4s fadeInDown ease-in-out;
+    }
+    &.js-success {
+      background-color: $green;      
+    }
+    &-icon {
+      width: 30px;
+      height: 24px;
+      fill: #fff; 
+      margin: 0 20px 0 20px;
+      @include vertical() {
+        margin-right: 20px;        
+      }
+    }
+    &-text {
+      max-width: 160px;
+      font-size: 12px; 
+      color: #fff;      
+      @include vertical() {
+        font-size: 14px;        
+        max-width: 200px;       
+      }
+      @include tablets() {
+        font-size: 16px;
+        max-width: 23 0px;               
+      }
+    }
+  }
+  &__currency {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    &-capture {
+      font-size: 12px;
+      color: $text;
+      max-width: 200px;
+      margin-right: 15px;
+      @include vertical() {
+        max-width: 170px;
+        margin-right: 20px;
+      }
+      @include tablets {
+        margin-right: 30px;
+      }
+    }
+  }
+  &__radio {
+    width: 33.3%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;  
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    &-btn {
+      display: none;
+      &:checked + .login-form__radio-shadow {
+        border: 1px solid $border;
+      }
+    }
+    &-shadow {
+      width: 100%;
+      height: 30px;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      color: rgba(0, 0, 0, 0.4);
+      background-color: $inputsBg;
+      color: #ffffff;
+      z-index: 10;
+      @include  tablets() {
+        height: 32px;
+      }
+
+      &_border {
+        z-index: 10;
+      }
+      &_border_left {
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+      }
+      &_border_right {
+        border-bottom-right-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+    }
+
+  }
+  &__checkbox-capture {
+    display: inline-block;
+    font-size: 12px;
+    color: $text;
+    padding-left: 48px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    @include vertical() {
+      max-width: 350px;
+    }
+    @include phones() {
+      max-width: 350px;
+    }
+    @include tablets() {
+      max-width: 100%;
+    }
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 29px;
+      height: 29px;
+      position: absolute;
+      top: 3px;
+      left: 0px;
+      background-color: $inputsBg;
+      border-radius: 3px;
+      transition: .1s;
+      @include vertical {
+        width: 30px;
+        height: 30px;
+        top: 1px;
+      }
+      @include tablets {
+        width: 32px;
+        height: 32px;
+        top: 0;
+      }
+    }
+
+  }
+  &__checkbox-btn {
+    &:not(:checked), &:checked {
+      position: absolute;
+      top: 0;
+      left: 6px;
+      width: 26px;
+      height: 16px;
+      opacity: 0;
+    }
+    &:checked + .login-form__checkbox-capture:before {
+      width: 12px;
+      height: 22px;
+      background-color: transparent;
+      border-top: 2px solid transparent;
+      border-left: 2px solid transparent;
+      border-right: 2px solid $border;
+      border-bottom: 2px solid $border;
+      transform: rotate(40deg);
+      transform-origin: 100% 100%;
+      top: 0;
+      left: 0;
+      @include tablets() {
+        width: 18px;
+        height: 28px;
+      }
+    }
+  }
+  &__submit {
+    width: 100%;
+    &-btn {
+      width: 100%;
+      display: inline-block;
+      position: relative;
+      background-color: $green;
+      color: #fff;
+      cursor: pointer;
+      padding: 15px 0;
+      border: 0;
+      border-radius: 5px;
+      outline: 0;
+      overflow: hidden;
+      transition: .5s;
+      @include tablets() {
+        padding: 16.5px 0;
+      }
+      &:before, &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        background: #218294;
+        opacity: .5;
+        transition: .3s;
+        z-index: -1;
+      }
+      &:after {
+        opacity: 1;
+        transition-delay: .2s;
+      }
+      &:hover {
+        color: #ffffff;
+      }
+      &:hover:before, &:hover:after {
+        left: 0;
+      }
+    }
+  }
+}
+
