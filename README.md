@@ -2,7 +2,7 @@
 
 Author: Stanislav Mikhniev Version 1.0
 
-Istallation instructions:
+Installation instructions:
 
 1. git clone
 2. npm install gulp-cli -g

@@ -1,6 +1,7 @@
 export const errorMessage = {
   email: 'Указанный Вами e-mail имеет неверный формат',
   password: 'Пароль должен быть не менее 4 символов',
+  agreenment: 'Вы должны принять соглашение',
   network: 'Подключение к интернету нарушено',
   error: 'Произошла ошибка на сервере',
   success: 'Регистрация прошла успешно, проверьте почту',
@@ -53,7 +54,7 @@ export default function validInputs(input) {
         }
         break;
       case 'checkbox':
-        if (!input.checked) addInvalidClasses(input);
+        if (!input.checked) addInvalidClasses(input, errorMessage.agreenment);
         else addCheckedClass(input);
         break;
       default:
