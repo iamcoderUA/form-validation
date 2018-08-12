@@ -1,4 +1,6 @@
-"Simple frontend form validation"
+"Frontend form validation"
+
+Github Pages: https://iamcoderua.github.io/form-validation/prod/
 
 Author: Stanislav Mikhniev Version 1.0
 
