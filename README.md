@@ -13,7 +13,7 @@ Installation instructions:
 5. gulp build (# build for production with minification) 
 
 Development
-* gulp -  will start the server with live reload. Navigate to http://localhost:3000/
+* npm run dev -  will start the server with live reload. Navigate to http://localhost:3000/
 
 Production
 * npm run start - spins up a nodemon server to serve an application. Navigate to http://localhost:55800.
