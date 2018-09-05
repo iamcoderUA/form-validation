@@ -54,7 +54,7 @@ export default function validInputs(input) {
         }
         break;
       case 'checkbox':
-        if (!input.checked) addInvalidClasses(input, errorMessage.agreenment);
+        if (input.checked) addInvalidClasses(input, errorMessage.agreenment);
         else addCheckedClass(input);
         break;
       default:
